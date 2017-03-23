@@ -79,12 +79,11 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber) {
-        
-        let annotation = MKPointAnnotation()
-        let locationCoordinate = CLLocationCoordinate2D(latitude: 37.779560, longitude: -122.393027)
-        annotation.coordinate = locationCoordinate
-        annotation.title = String(describing: latitude)
-        mapView.addAnnotation(annotation)
+            let annotation = MKPointAnnotation()
+            let locationCoordinate = CLLocationCoordinate2D(latitude: latitude as! CLLocationDegrees, longitude: longitude as! CLLocationDegrees)
+            annotation.coordinate = locationCoordinate
+            annotation.title = "Founders Den"
+            mapView.addAnnotation(annotation)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
